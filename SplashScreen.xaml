@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Multiplatoform_Project.SplashScreen"
+             BackgroundColor="Orange"
+             Title="SplashScreen">
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Label
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            FontAttributes="Bold"
+            HeightRequest="200"
+            WidthRequest="750"
+            FontSize="Title"
+            TextColor="White"
+            Text="Silkroad "/>
+
+        <Image
+            
+            Source="brandlogo.png"
+            WidthRequest="300"
+            HeightRequest="125"
+            />
+
+
+        <Label
+            FontSize="Subtitle"
+            HorizontalOptions="Center"
+            TextColor="White"
+            Text="HOME TEXTILES "/>
+
+
+        <Label 
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            TextColor="White"
+            Text="Where Elegance Meets Comfort"/>
+
+    </VerticalStackLayout>
+</ContentPage>
