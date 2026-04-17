@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Multiplatoform_Project.Pages.EditProfile"
+             Title="EditProfile">
+    <VerticalStackLayout>
+
+        <Grid RowDefinitions="Auto,*,Auto">
+
+            <!-- ── Header ───────────────────────────────────────────── -->
+            <Grid Grid.Row="0" Padding="20,16" ColumnDefinitions="Auto,*"
+              BackgroundColor="#F5F0EB">
+                <ImageButton Grid.Column="0"
+                         Source="icon_back.png"
+                         WidthRequest="36" HeightRequest="36"
+                         BackgroundColor="#EBEBEB"
+                         CornerRadius="18"
+                         Clicked="OnBackClicked" />
+                <Label Grid.Column="1"
+                   Text="Edit profile"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#1A1A1A"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+            </Grid>
+
+            <!-- ── Scrollable content ───────────────────────────────── -->
+            <ScrollView Grid.Row="1" Padding="20,0">
+                <StackLayout Spacing="22">
+
+                    <!-- Avatar -->
+                    <StackLayout HorizontalOptions="Center" Spacing="8" Margin="0,16,0,0">
+                        <Grid WidthRequest="80" HeightRequest="80">
+                            <Ellipse WidthRequest="80" HeightRequest="80"
+                                 Fill="#C8683A" />
+                            <Label x:Name="InitialsLabel"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                            <!-- Edit badge -->
+                            <Border BackgroundColor="#1A1A1A"
+                                StrokeShape="RoundRectangle 10"
+                                Stroke="Transparent"
+                                WidthRequest="20" HeightRequest="20"
+                                HorizontalOptions="End"
+                                VerticalOptions="End">
+                                <Label Text="✎"
+                                   FontSize="11"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center" />
+                            </Border>
+                        </Grid>
+
+                        <Label x:Name="FullNameLabel"
+                           FontSize="17"
+                           FontAttributes="Bold"
+                           TextColor="#1A1A1A"
+                           HorizontalOptions="Center" />
+                        <Label x:Name="MemberSinceLabel"
+                           FontSize="13"
+                           TextColor="#9E9E9E"
+                           HorizontalOptions="Center" />
+                    </StackLayout>
+
+                    <!-- Form card -->
+                    <Border BackgroundColor="White"
+                        StrokeShape="RoundRectangle 16"
+                        Stroke="Transparent"
+                        Padding="18"
+                        Shadow="{Shadow Brush='#18000000', Offset='0,2', Radius='6'}">
+                        <StackLayout Spacing="16">
+
+                            <!-- First / Last name -->
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                                <StackLayout Grid.Column="0" Spacing="6">
+                                    <Label Text="First name" FontSize="13" TextColor="#666666" />
+                                    <Border BackgroundColor="#F8F6F3"
+                                        StrokeShape="RoundRectangle 10"
+                                        Stroke="#E0D8D0">
+                                        <Entry x:Name="FirstNameEntry"
+                                           TextColor="#1A1A1A"
+                                           FontSize="15"
+                                           BackgroundColor="Transparent"
+                                           Margin="4,0" />
+                                    </Border>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Spacing="6">
+                                    <Label Text="Last name" FontSize="13" TextColor="#666666" />
+                                    <Border BackgroundColor="#F8F6F3"
+                                        StrokeShape="RoundRectangle 10"
+                                        Stroke="#E0D8D0">
+                                        <Entry x:Name="LastNameEntry"
+                                           TextColor="#1A1A1A"
+                                           FontSize="15"
+                                           BackgroundColor="Transparent"
+                                           Margin="4,0" />
+                                    </Border>
+                                </StackLayout>
+                            </Grid>
+
+                            <!-- Email -->
+                            <StackLayout Spacing="6">
+                                <Label Text="Email address" FontSize="13" TextColor="#666666" />
+                                <Border BackgroundColor="#F8F6F3"
+                                    StrokeShape="RoundRectangle 10"
+                                    Stroke="#E0D8D0">
+                                    <Entry x:Name="EmailEntry"
+                                       Keyboard="Email"
+                                       TextColor="#1A1A1A"
+                                       FontSize="15"
+                                       BackgroundColor="Transparent"
+                                       Margin="4,0" />
+                                </Border>
+                            </StackLayout>
+
+                            <!-- Phone -->
+                            <StackLayout Spacing="6">
+                                <Label Text="Phone number" FontSize="13" TextColor="#666666" />
+                                <Border BackgroundColor="#F8F6F3"
+                                    StrokeShape="RoundRectangle 10"
+                                    Stroke="#E0D8D0">
+                                    <Entry x:Name="PhoneEntry"
+                                       Keyboard="Telephone"
+                                       TextColor="#1A1A1A"
+                                       FontSize="15"
+                                       BackgroundColor="Transparent"
+                                       Margin="4,0" />
+                                </Border>
+                            </StackLayout>
+
+                            <!-- Shipping address -->
+                            <StackLayout Spacing="6">
+                                <Label Text="Shipping address" FontSize="13" TextColor="#666666" />
+                                <Border BackgroundColor="#F8F6F3"
+                                    StrokeShape="RoundRectangle 10"
+                                    Stroke="#E0D8D0">
+                                    <Entry x:Name="AddressEntry"
+                                       TextColor="#1A1A1A"
+                                       FontSize="15"
+                                       BackgroundColor="Transparent"
+                                       Margin="4,0" />
+                                </Border>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Border>
+
+                    <!-- Change password row -->
+                    <Border BackgroundColor="White"
+                        StrokeShape="RoundRectangle 16"
+                        Stroke="Transparent"
+                        Padding="18,14"
+                        Shadow="{Shadow Brush='#18000000', Offset='0,2', Radius='6'}">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnChangePasswordTapped" />
+                        </Border.GestureRecognizers>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackLayout Grid.Column="0" Spacing="3">
+                                <Label Text="Change password"
+                                   FontSize="15"
+                                   FontAttributes="Bold"
+                                   TextColor="#1A1A1A" />
+                                <Label Text="Update your account password"
+                                   FontSize="12"
+                                   TextColor="#9E9E9E" />
+                            </StackLayout>
+                            <Label Grid.Column="1"
+                               Text="›"
+                               FontSize="22"
+                               TextColor="#CCCCCC"
+                               VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+
+                    <BoxView HeightRequest="8" BackgroundColor="Transparent" />
+
+                </StackLayout>
+            </ScrollView>
+
+            <!-- ── Save Button ──────────────────────────────────────── -->
+            <Border Grid.Row="2"
+                BackgroundColor="White"
+                Stroke="Transparent"
+                Padding="20,12">
+                <Button x:Name="SaveBtn"
+                    Text="Save changes"
+                    BackgroundColor="#C8683A"
+                    TextColor="White"
+                    FontSize="17"
+                    FontAttributes="Bold"
+                    HeightRequest="54"
+                    CornerRadius="14"
+                    Clicked="OnSaveClicked" />
+            </Border>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
