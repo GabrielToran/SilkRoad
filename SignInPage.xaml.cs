@@ -5,7 +5,7 @@ namespace Multiplatoform_Project;
 
 public partial class SignInPage : ContentPage
 {
-    private FirebaseAuthService _authService = new FirebaseAuthService();
+    private FirebaseAuthServices _authService = new FirebaseAuthServices();
     public SignInPage()
 	{
 		InitializeComponent();
@@ -14,15 +14,22 @@ public partial class SignInPage : ContentPage
 
     private async void OnSignInClicked(object sender, EventArgs e)
     {
+        string email = EmailEntry.Text?.Trim() ?? "";
+        string password = PasswordEntry.Text ?? "";
+
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        {
+            result.Text = "Please enter your email and password.";
+            return;
+        }
+
+
         try
         {
-            var result = await _authService.SignIn(
-                EmailEntry.Text,
-                PasswordEntry.Text
-                );
-            await SecureStorage.SetAsync("firebase_token", result);
+            await FirebaseAuthServices.Instance.SignInAsync(email, password);
+            await SecureStorage.SetAsync("firebase_token", FirebaseAuthServices.Instance.IdToken ?? "");
             //go to another page
-            Application.Current.MainPage = new NavigationPage(new HomePage(EmailEntry.Text));
+            Application.Current.MainPage = new NavigationPage(new HomePage(email));
         }
         catch (Exception ex)
         {
