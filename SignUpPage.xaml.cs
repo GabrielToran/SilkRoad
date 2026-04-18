@@ -4,7 +4,7 @@ namespace Multiplatoform_Project;
 
 public partial class SignUpPage : ContentPage
 {
-    private FirebaseAuthService _authService = new FirebaseAuthService();
+    private FirebaseAuthServices _authService = new FirebaseAuthServices();
     public SignUpPage()
 	{
 		InitializeComponent();
@@ -12,14 +12,25 @@ public partial class SignUpPage : ContentPage
 
     private async void OnSignUpClicked(object sender, EventArgs e)
     {
+        string firstName = FirstNameEntry.Text?.Trim() ?? "";
+        string lastName = LastNameEntry.Text?.Trim() ?? "";
+        string email = EmailEntry.Text?.Trim() ?? "";
+        string password = PasswordEntry.Text ?? "";
+
+        if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
+            string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        {
+            result.Text = "Please fill in all fields.";
+            return;
+        }
+
+
+
+
         try
         {
-            var result = await _authService.Signup(
-                FirstNameEntry.Text, LastNameEntry.Text,
-                EmailEntry.Text,
-                PasswordEntry.Text
-                );
-            await SecureStorage.SetAsync("firebase_token", result);
+            await FirebaseAuthServices.Instance.SignUpAsync(firstName, lastName, email, password);
+            await SecureStorage.SetAsync("firebase_token", FirebaseAuthServices.Instance.IdToken ?? "");
             //go to another page
 
         }
