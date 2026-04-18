@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Multiplatoform_Project.HomePage"
+             Title="HomePage">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label
+        Text="Welcome !"
+        VerticalOptions="Center"
+        HorizontalOptions="Center"
+        />
+            <Border StrokeThickness="0"
+               WidthRequest="220"
+               HeightRequest="220"
+               StrokeShape="RoundRectangle 50">
+
+                <Grid >
+
+                    <!-- window decor -->
+                    <ImageButton Source="windowdecor.png" Aspect="AspectFill"/>
+                    <Label Text="Window Decor"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                </Grid>
+
+            </Border>
+            
+            <Border StrokeThickness="0"
+        WidthRequest="220"
+        HeightRequest="220"
+        StrokeShape="RoundRectangle 50">
+
+                <Grid>
+                    <!-- Rugs and Carpets-->
+                    <ImageButton Source="rugs.png" Aspect="AspectFill"/>
+                    <Label Text="Rugs and Carpets"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                </Grid>
+
+            </Border>
+
+            <Border StrokeThickness="0"
+                WidthRequest="220"
+                HeightRequest="220"
+                StrokeShape="RoundRectangle 50">
+
+
+                <Grid>
+                    <!-- Bedding-->
+                    <ImageButton Source="bedding.png" Aspect="AspectFill"/>
+                    <Label Text="Bedding"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+
+                </Grid>
+            </Border>
+
+            <Border StrokeThickness="0"
+                WidthRequest="220"
+                HeightRequest="220"
+                StrokeShape="RoundRectangle 50">
+                <Grid>
+                    <!--Bath -->
+                    <ImageButton Source="bath.png" Aspect="AspectFill"/>
+                    <Label Text="Bath"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                </Grid>
+
+            </Border>
+
+            <Label
+         x:Name="nameLabel"
+         TextColor="Green"
+         FontSize="30"
+         Text="firstname"/>
+            <Button Text="Logout"
+             Clicked="OnLogOutClicked"
+             />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
