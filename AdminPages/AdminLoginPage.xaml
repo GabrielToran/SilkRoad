@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Multiplatoform_Project.AdminPages.AdminLoginPage"
+             Title="AdminLoginPage">
+    <ScrollView>
+    <VerticalStackLayout>
+        <StackLayout Padding="28,60,28,40" Spacing="0">
+
+            <!-- Logo -->
+            <Border BackgroundColor="#1A1A1A"
+                    StrokeShape="RoundRectangle 22"
+                    Stroke="Transparent"
+                    WidthRequest="72"
+                    HeightRequest="72"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,20">
+                <Label Text="🔐"
+                       FontSize="32"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Border>
+
+            <!-- Heading -->
+            <Label Text="ADMIN PORTAL"
+                   FontSize="12"
+                   TextColor="#9E9E9E"
+                   HorizontalOptions="Center"
+                   CharacterSpacing="3"
+                   Margin="0,0,0,6" />
+            <Label Text="Secure access"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="#1A1A1A"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,4" />
+            <Label Text="Authorized personnel only"
+                   FontSize="14"
+                   TextColor="#9E9E9E"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,36" />
+
+            <!-- Form card -->
+            <Border BackgroundColor="White"
+                    StrokeShape="RoundRectangle 20"
+                    Stroke="Transparent"
+                    Padding="24"
+                    Shadow="{Shadow Brush='#20000000', Offset='0,4', Radius='12'}">
+                <StackLayout Spacing="18">
+
+                    <!-- Admin Email -->
+                    <StackLayout Spacing="6">
+                        <Label Text="Admin email" FontSize="13" TextColor="#666666" />
+                        <Border BackgroundColor="#F8F6F3"
+                                StrokeShape="RoundRectangle 12"
+                                Stroke="#E0D8D0">
+                            <Entry x:Name="EmailEntry"
+                                   Placeholder="admin@silkroad.com"
+                                   PlaceholderColor="#BBBBBB"
+                                   TextColor="#1A1A1A"
+                                   FontSize="15"
+                                   Keyboard="Email"
+                                   BackgroundColor="Transparent"
+                                   Margin="8,2" />
+                        </Border>
+                    </StackLayout>
+
+                    <!-- Password -->
+                    <StackLayout Spacing="6">
+                        <Label Text="Password" FontSize="13" TextColor="#666666" />
+                        <Border BackgroundColor="#F8F6F3"
+                                StrokeShape="RoundRectangle 12"
+                                Stroke="#E0D8D0">
+                            <Entry x:Name="PasswordEntry"
+                                   Placeholder="••••••••"
+                                   PlaceholderColor="#BBBBBB"
+                                   TextColor="#1A1A1A"
+                                   FontSize="15"
+                                   IsPassword="True"
+                                   BackgroundColor="Transparent"
+                                   Margin="8,2" />
+                        </Border>
+                    </StackLayout>
+
+                    <!-- Error -->
+                    <Label x:Name="ErrorLabel"
+                           TextColor="#C8683A"
+                           FontSize="13"
+                           IsVisible="False"
+                           HorizontalOptions="Center" />
+
+                    <!-- Sign In button -->
+                    <Button x:Name="SignInBtn"
+                            Text="Sign in to admin"
+                            BackgroundColor="#1A1A1A"
+                            TextColor="White"
+                            FontSize="17"
+                            FontAttributes="Bold"
+                            HeightRequest="54"
+                            CornerRadius="14"
+                            Margin="0,6,0,0"
+                            Clicked="OnSignInClicked" />
+
+                </StackLayout>
+            </Border>
+
+            <!-- Back to store -->
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Margin="0,28,0,0"
+                                   Spacing="4">
+                <Label Text="←" FontSize="14" TextColor="#BBBBBB" />
+                <Label Text="Back to store"
+                       FontSize="14"
+                       TextColor="#BBBBBB">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackToStoreTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+        </StackLayout>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
