@@ -47,7 +47,8 @@ public partial class AdminLoginPage : ContentPage
         catch (Exception ex)
         {
             string msg = ex.Message.Contains("INVALID_PASSWORD") ||
-                         ex.Message.Contains("EMAIL_NOT_FOUND")
+                         ex.Message.Contains("EMAIL_NOT_FOUND")  ||
+                         ex.Message.Contains("INVALID_LOGIN_CREDENTIALS")
                 ? "Invalid email or password."
                 : "Sign in failed. Please try again.";
             ShowError(msg);
