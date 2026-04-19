@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,6 +15,14 @@ namespace Multiplatoform_Project.Models
         public string imageUrl { get; set; } = string.Empty;
         public string badge { get; set; } = string.Empty; // "Best seller", "New", "Sale", ""
         public bool available { get; set; } = true;
+
+        public string ImageUrl => imageUrl;
+        public string Badge => badge;
+        public bool Available => available;
+        public string CategoryName => categoryName;
+        public string CategoryId => categoryId;
+
+
 
         // Display helpers
         public string FormattedPrice => $"${Price:F2}";
