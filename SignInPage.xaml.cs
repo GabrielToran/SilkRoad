@@ -29,7 +29,7 @@ public partial class SignInPage : ContentPage
             await FirebaseAuthServices.Instance.SignInAsync(email, password);
             await SecureStorage.SetAsync("firebase_token", FirebaseAuthServices.Instance.IdToken ?? "");
             //go to another page
-            Application.Current.MainPage = new NavigationPage(new HomePage(email));
+            Application.Current.MainPage = new NavigationPage(new HomePage());
         }
         catch (Exception ex)
         {
