@@ -79,14 +79,19 @@ public partial class AdminAddEditProductPage : ContentPage
 
             if (result == null) return;
 
-            _imageStream = await result.OpenReadAsync();
             _imageFileName = result.FileName;
 
-            ProductImagePreview.Source = ImageSource.FromStream(() =>
-            {
-                _imageStream.Position = 0;
-                return _imageStream;
-            });
+            
+            using var original = await result.OpenReadAsync();
+            var ms = new MemoryStream();
+            await original.CopyToAsync(ms);
+            ms.Position = 0;
+            _imageStream = ms;
+
+            
+            var previewBytes = ms.ToArray();
+            ProductImagePreview.Source = ImageSource.FromStream(
+                () => new MemoryStream(previewBytes));
             ProductImagePreview.IsVisible = true;
             ImagePlaceholder.IsVisible = false;
         }
