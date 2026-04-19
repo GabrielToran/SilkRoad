@@ -1,4 +1,4 @@
-﻿namespace Multiplatoform_Project
+namespace Multiplatoform_Project
 {
     public partial class MainPage : ContentPage
     {
@@ -29,5 +29,7 @@
 
         }
 
+        private async void OnAdminTapped(object sender, TappedEventArgs e)
+          => await Navigation.PushAsync(new AdminPages.AdminLoginPage());
     }
 }
