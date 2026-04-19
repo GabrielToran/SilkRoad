@@ -6,6 +6,7 @@ public partial class AdminCategoriesPage : ContentPage
 {
     private List<Category> _categories = new();
     public bool IsRefreshing { get; set; }
+    public Command RefreshCommand => new Command(async () => await LoadCategoriesAsync());
     public AdminCategoriesPage()
 	{
 		InitializeComponent();
