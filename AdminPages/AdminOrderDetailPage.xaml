@@ -3,181 +3,181 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Multiplatoform_Project.AdminPages.AdminOrderDetailPage"
              Title="AdminOrderDetailPage">
-    <Grid RowDefinitions="Auto,*,Auto">
+	<Grid RowDefinitions="Auto,*,Auto">
 
-        <!-- ── Header ───────────────────────────────────────────── -->
-        <Grid Grid.Row="0"
+		<!-- ── Header ───────────────────────────────────────────── -->
+		<Grid Grid.Row="0"
               BackgroundColor="#1A1A1A"
               Padding="20,52,20,20"
               ColumnDefinitions="Auto,*">
-            <ImageButton Grid.Column="0"
+			<ImageButton Grid.Column="0"
                          Source="icon_back_white.png"
                          WidthRequest="36" HeightRequest="36"
                          BackgroundColor="#333333"
                          CornerRadius="18"
                          Clicked="OnBackClicked" />
-            <StackLayout Grid.Column="1" Spacing="2"
+			<StackLayout Grid.Column="1" Spacing="2"
                          HorizontalOptions="Center"
                          VerticalOptions="Center">
-                <Label x:Name="OrderIdLabel"
+				<Label x:Name="OrderIdLabel"
                        FontSize="20"
                        FontAttributes="Bold"
                        TextColor="White"
                        HorizontalOptions="Center" />
-            </StackLayout>
-        </Grid>
+			</StackLayout>
+		</Grid>
 
-        <!-- ── Scrollable content ───────────────────────────────── -->
-        <ScrollView Grid.Row="1" Padding="16,12,16,16">
-            <StackLayout Spacing="14">
+		<!-- ── Scrollable content ───────────────────────────────── -->
+		<ScrollView Grid.Row="1" Padding="16,12,16,16">
+			<StackLayout Spacing="14">
 
-                <!-- Customer info card -->
-                <Border BackgroundColor="White"
+				<!-- Customer info card -->
+				<Border BackgroundColor="White"
                         StrokeShape="RoundRectangle 14"
                         Stroke="Transparent"
                         Padding="16"
                         Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                    <StackLayout Spacing="10">
-                        <Label Text="Customer"
+					<StackLayout Spacing="10">
+						<Label Text="Customer"
                                FontSize="13"
                                TextColor="#888888"
                                FontAttributes="Bold"
                                CharacterSpacing="1" />
-                        <Grid ColumnDefinitions="*,Auto">
-                            <StackLayout Grid.Column="0" Spacing="4">
-                                <Label x:Name="CustomerNameLabel"
+						<Grid ColumnDefinitions="*,Auto">
+							<StackLayout Grid.Column="0" Spacing="4">
+								<Label x:Name="CustomerNameLabel"
                                        FontSize="16"
                                        FontAttributes="Bold"
                                        TextColor="#1A1A1A" />
-                                <Label x:Name="OrderDateLabel"
+								<Label x:Name="OrderDateLabel"
                                        FontSize="13"
                                        TextColor="#888888" />
-                                <Label x:Name="ShippingAddressLabel"
+								<Label x:Name="ShippingAddressLabel"
                                        FontSize="13"
                                        TextColor="#666666" />
-                            </StackLayout>
+							</StackLayout>
 
-                            <!-- Status badge -->
-                            <Border Grid.Column="1"
+							<!-- Status badge -->
+							<Border Grid.Column="1"
                                     x:Name="StatusBadge"
                                     StrokeShape="RoundRectangle 10"
                                     Stroke="Transparent"
                                     Padding="12,6"
                                     VerticalOptions="Start">
-                                <Label x:Name="StatusLabel"
+								<Label x:Name="StatusLabel"
                                        FontSize="13"
                                        FontAttributes="Bold" />
-                            </Border>
-                        </Grid>
-                    </StackLayout>
-                </Border>
+							</Border>
+						</Grid>
+					</StackLayout>
+				</Border>
 
-                <!-- Order items card -->
-                <Border BackgroundColor="White"
+				<!-- Order items card -->
+				<Border BackgroundColor="White"
                         StrokeShape="RoundRectangle 14"
                         Stroke="Transparent"
                         Padding="16"
                         Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                    <StackLayout Spacing="12">
-                        <Label Text="Items"
+					<StackLayout Spacing="12">
+						<Label Text="Items"
                                FontSize="13"
                                TextColor="#888888"
                                FontAttributes="Bold"
                                CharacterSpacing="1" />
 
-                        <CollectionView x:Name="ItemsCollection" SelectionMode="None">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid ColumnDefinitions="48,*,Auto"
+						<CollectionView x:Name="ItemsCollection" SelectionMode="None">
+							<CollectionView.ItemTemplate>
+								<DataTemplate>
+									<Grid ColumnDefinitions="48,*,Auto"
                                           ColumnSpacing="12"
                                           Margin="0,4">
-                                        <Border Grid.Column="0"
+										<Border Grid.Column="0"
                                                 StrokeShape="RoundRectangle 8"
                                                 Stroke="Transparent"
                                                 BackgroundColor="#F0EBE5"
                                                 WidthRequest="48" HeightRequest="48">
-                                            <Image Source="{Binding ImageUrl}"
+											<Image Source="{Binding ImageUrl}"
                                                    Aspect="AspectFill" />
-                                        </Border>
-                                        <StackLayout Grid.Column="1" Spacing="3"
+										</Border>
+										<StackLayout Grid.Column="1" Spacing="3"
                                                      VerticalOptions="Center">
-                                            <Label Text="{Binding Name}"
+											<Label Text="{Binding Name}"
                                                    FontSize="14"
                                                    FontAttributes="Bold"
                                                    TextColor="#1A1A1A" />
-                                            <Label Text="{Binding Variant}"
+											<Label Text="{Binding Variant}"
                                                    FontSize="12"
                                                    TextColor="#9E9E9E" />
-                                        </StackLayout>
-                                        <Label Grid.Column="2"
+										</StackLayout>
+										<Label Grid.Column="2"
                                                FontSize="14"
                                                FontAttributes="Bold"
                                                TextColor="#1A1A1A"
                                                VerticalOptions="Center">
-                                            <Label.Text>
-                                                <MultiBinding StringFormat="${0:F2}">
-                                                    <Binding Path="LineTotal" />
-                                                </MultiBinding>
-                                            </Label.Text>
-                                        </Label>
-                                    </Grid>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
+											<Label.Text>
+												<MultiBinding StringFormat="${0:F2}">
+													<Binding Path="LineTotal" />
+												</MultiBinding>
+											</Label.Text>
+										</Label>
+									</Grid>
+								</DataTemplate>
+							</CollectionView.ItemTemplate>
+						</CollectionView>
 
-                        <BoxView HeightRequest="1" BackgroundColor="#F0EBE5" />
+						<BoxView HeightRequest="1" BackgroundColor="#F0EBE5" />
 
-                        <Grid ColumnDefinitions="*,Auto">
-                            <Label Grid.Column="0"
+						<Grid ColumnDefinitions="*,Auto">
+							<Label Grid.Column="0"
                                    Text="Order Total"
                                    FontSize="15"
                                    FontAttributes="Bold"
                                    TextColor="#1A1A1A" />
-                            <Label Grid.Column="1"
+							<Label Grid.Column="1"
                                    x:Name="TotalLabel"
                                    FontSize="15"
                                    FontAttributes="Bold"
                                    TextColor="#C8683A"
                                    HorizontalOptions="End" />
-                        </Grid>
-                    </StackLayout>
-                </Border>
+						</Grid>
+					</StackLayout>
+				</Border>
 
-                <!-- Payment info -->
-                <Border BackgroundColor="White"
+				<!-- Payment info -->
+				<Border BackgroundColor="White"
                         StrokeShape="RoundRectangle 14"
                         Stroke="Transparent"
                         Padding="16"
                         Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                    <Grid ColumnDefinitions="*,Auto">
-                        <Label Grid.Column="0"
+					<Grid ColumnDefinitions="*,Auto">
+						<Label Grid.Column="0"
                                Text="Payment method"
                                FontSize="14"
                                TextColor="#666666" />
-                        <Label Grid.Column="1"
+						<Label Grid.Column="1"
                                x:Name="PaymentMethodLabel"
                                FontSize="14"
                                FontAttributes="Bold"
                                TextColor="#1A1A1A"
                                HorizontalOptions="End" />
-                    </Grid>
-                </Border>
+					</Grid>
+				</Border>
 
-                <!-- Update status card -->
-                <Border BackgroundColor="White"
+				<!-- Update status card -->
+				<Border BackgroundColor="White"
                         StrokeShape="RoundRectangle 14"
                         Stroke="Transparent"
                         Padding="16"
                         Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                    <StackLayout Spacing="12">
-                        <Label Text="Update Status"
+					<StackLayout Spacing="12">
+						<Label Text="Update Status"
                                FontSize="13"
                                TextColor="#888888"
                                FontAttributes="Bold"
                                CharacterSpacing="1" />
 
-                        <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
-                            <Button Grid.Column="0"
+						<Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+							<Button Grid.Column="0"
                                     x:Name="PendingBtn"
                                     Text="Pending"
                                     BackgroundColor="#FFF3E0"
@@ -187,7 +187,7 @@
                                     HeightRequest="42"
                                     CornerRadius="10"
                                     Clicked="OnSetPending" />
-                            <Button Grid.Column="1"
+							<Button Grid.Column="1"
                                     x:Name="ShippedBtn"
                                     Text="Shipped"
                                     BackgroundColor="#E8F0FE"
@@ -197,7 +197,7 @@
                                     HeightRequest="42"
                                     CornerRadius="10"
                                     Clicked="OnSetShipped" />
-                            <Button Grid.Column="2"
+							<Button Grid.Column="2"
                                     x:Name="DeliveredBtn"
                                     Text="Delivered"
                                     BackgroundColor="#EEF5F0"
@@ -207,19 +207,19 @@
                                     HeightRequest="42"
                                     CornerRadius="10"
                                     Clicked="OnSetDelivered" />
-                        </Grid>
-                    </StackLayout>
-                </Border>
+						</Grid>
+					</StackLayout>
+				</Border>
 
-            </StackLayout>
-        </ScrollView>
+			</StackLayout>
+		</ScrollView>
 
-        <!-- ── Back button ──────────────────────────────────────── -->
-        <Border Grid.Row="2"
+		<!-- ── Back button ──────────────────────────────────────── -->
+		<Border Grid.Row="2"
                 BackgroundColor="White"
                 Stroke="Transparent"
                 Padding="20,12">
-            <Button Text="← Back to orders"
+			<Button Text="← Back to orders"
                     BackgroundColor="#1A1A1A"
                     TextColor="White"
                     FontSize="16"
@@ -227,7 +227,7 @@
                     HeightRequest="54"
                     CornerRadius="14"
                     Clicked="OnBackClicked" />
-        </Border>
+		</Border>
 
-    </Grid>
+	</Grid>
 </ContentPage>

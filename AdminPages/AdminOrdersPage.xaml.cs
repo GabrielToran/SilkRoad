@@ -11,8 +11,8 @@ public partial class AdminOrdersPage : ContentPage
     public bool IsRefreshing { get; set; }
 
     public AdminOrdersPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         BindingContext = this;
     }
     protected override async void OnAppearing()

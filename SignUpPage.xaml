@@ -3,33 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Multiplatoform_Project.SignUpPage"
              Title="SignUpPage">
-    <ScrollView>
-        <VerticalStackLayout>
-            <Label Text="SignUP"
+	<ScrollView>
+		<VerticalStackLayout>
+			<Label Text="SignUP"
       FontSize="40"
       HorizontalOptions="Center"
       />
 
-            <Entry x:Name="FirstNameEntry"
+			<Entry x:Name="FirstNameEntry"
        Placeholder="Firstname" />
-            <Entry x:Name="LastNameEntry"
+			<Entry x:Name="LastNameEntry"
        
        Placeholder="Lastname"/>
 
 
-            <Entry x:Name="EmailEntry"
+			<Entry x:Name="EmailEntry"
        Placeholder="Email" />
-            <Entry x:Name="PasswordEntry"
+			<Entry x:Name="PasswordEntry"
        IsPassword="False"
        Placeholder="Password"/>
-            <Button Text="SignUP"
+			<Button Text="SignUP"
         Clicked="OnSignUpClicked"/>
-            <Button Text="Already Have an account ? SignIn"
+			<Button Text="Already Have an account ? SignIn"
         Clicked="OnGoToSignInPage"
         
        />
-            <Label x:Name="result"
+			<Label x:Name="result"
        TextColor="red"/>
-        </VerticalStackLayout>
-    </ScrollView>
+		</VerticalStackLayout>
+	</ScrollView>
 </ContentPage>

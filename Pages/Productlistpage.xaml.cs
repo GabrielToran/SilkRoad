@@ -9,7 +9,7 @@ public partial class Productlistpage : ContentPage
     private readonly string _categoryId;
     private readonly string _categoryName;
     private List<Product> _products = new();
-   
+
 
     public bool IsRefreshing { get; set; }
     public List<Product> Products
@@ -18,9 +18,9 @@ public partial class Productlistpage : ContentPage
         set { _products = value; OnPropertyChanged(); }
     }
 
-    public Productlistpage(string categoryId,string categoryName)
-	{
-		InitializeComponent();
+    public Productlistpage(string categoryId, string categoryName)
+    {
+        InitializeComponent();
         _categoryId = categoryId;
         _categoryName = categoryName;
         BindingContext = this;

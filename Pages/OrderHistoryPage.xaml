@@ -2,126 +2,126 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Multiplatoform_Project.Pages.OrderHistoryPage">
-    <Grid RowDefinitions="Auto,*">
+	<Grid RowDefinitions="Auto,*">
 
-    <!-- ── Header ───────────────────────────────────────────── -->
-    <Grid Grid.Row="0" Padding="20,16" ColumnDefinitions="Auto,*"
-              BackgroundColor="#F5F0EB">
-        <ImageButton Grid.Column="0"
-                         Source="icon_back.png"
-                         WidthRequest="36" HeightRequest="36"
-                         BackgroundColor="#EBEBEB" CornerRadius="18"
-                         Clicked="OnBackClicked" />
-        <Label Grid.Column="1" Text="My Orders"
-                   FontSize="20" FontAttributes="Bold" TextColor="#1A1A1A"
-                   HorizontalOptions="Center" VerticalOptions="Center" />
-    </Grid>
+		<!-- ── Header ───────────────────────────────────────────── -->
+		<Grid Grid.Row="0" Padding="20,16" ColumnDefinitions="Auto,*"
+				  BackgroundColor="#F5F0EB">
+			<ImageButton Grid.Column="0"
+							 Source="icon_back.png"
+							 WidthRequest="36" HeightRequest="36"
+							 BackgroundColor="#EBEBEB" CornerRadius="18"
+							 Clicked="OnBackClicked" />
+			<Label Grid.Column="1" Text="My Orders"
+					   FontSize="20" FontAttributes="Bold" TextColor="#1A1A1A"
+					   HorizontalOptions="Center" VerticalOptions="Center" />
+		</Grid>
 
-    <!-- ── Orders list ──────────────────────────────────────── -->
-    <CollectionView Grid.Row="1"
-                        x:Name="OrdersCollection"
-                        SelectionMode="None"
-                        Margin="16,12,16,16">
+		<!-- ── Orders list ──────────────────────────────────────── -->
+		<CollectionView Grid.Row="1"
+							x:Name="OrdersCollection"
+							SelectionMode="None"
+							Margin="16,12,16,16">
 
-        <CollectionView.EmptyView>
-            <StackLayout VerticalOptions="Center" HorizontalOptions="Center"
-                             Padding="40" Spacing="12">
-                <Label Text="🛍️" FontSize="48" HorizontalOptions="Center" />
-                <Label Text="No orders yet"
-                           FontSize="17" FontAttributes="Bold" TextColor="#1A1A1A"
-                           HorizontalOptions="Center" />
-                <Label Text="Your placed orders will appear here"
-                           FontSize="14" TextColor="#9E9E9E"
-                           HorizontalOptions="Center" />
-            </StackLayout>
-        </CollectionView.EmptyView>
+			<CollectionView.EmptyView>
+				<StackLayout VerticalOptions="Center" HorizontalOptions="Center"
+								 Padding="40" Spacing="12">
+					<Label Text="🛍️" FontSize="48" HorizontalOptions="Center" />
+					<Label Text="No orders yet"
+							   FontSize="17" FontAttributes="Bold" TextColor="#1A1A1A"
+							   HorizontalOptions="Center" />
+					<Label Text="Your placed orders will appear here"
+							   FontSize="14" TextColor="#9E9E9E"
+							   HorizontalOptions="Center" />
+				</StackLayout>
+			</CollectionView.EmptyView>
 
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Border BackgroundColor="White"
-                            StrokeShape="RoundRectangle 14"
-                            Stroke="Transparent"
-                            Margin="0,0,0,12"
-                            Padding="16"
-                            Shadow="{Shadow Brush='#18000000', Offset='0,2', Radius='6'}">
-                    <StackLayout Spacing="10">
+			<CollectionView.ItemTemplate>
+				<DataTemplate>
+					<Border BackgroundColor="White"
+								StrokeShape="RoundRectangle 14"
+								Stroke="Transparent"
+								Margin="0,0,0,12"
+								Padding="16"
+								Shadow="{Shadow Brush='#18000000', Offset='0,2', Radius='6'}">
+						<StackLayout Spacing="10">
 
-                        <!-- Order ID + Status badge -->
-                        <Grid ColumnDefinitions="*,Auto">
-                            <Label Grid.Column="0"
-                                       Text="{Binding OrderId}"
-                                       FontSize="15" FontAttributes="Bold"
-                                       TextColor="#1A1A1A" />
-                            <Border Grid.Column="1"
-                                        StrokeShape="RoundRectangle 8"
-                                        Stroke="Transparent" Padding="10,4">
-                                <Border.Triggers>
-                                    <DataTrigger TargetType="Border"
-                                                     Binding="{Binding Status}" Value="Pending">
-                                        <Setter Property="BackgroundColor" Value="#FFF3E0" />
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Border"
-                                                     Binding="{Binding Status}" Value="Shipped">
-                                        <Setter Property="BackgroundColor" Value="#E8F0FE" />
-                                    </DataTrigger>
-                                    <DataTrigger TargetType="Border"
-                                                     Binding="{Binding Status}" Value="Delivered">
-                                        <Setter Property="BackgroundColor" Value="#EEF5F0" />
-                                    </DataTrigger>
-                                </Border.Triggers>
-                                <Label Text="{Binding Status}"
-                                           FontSize="12" FontAttributes="Bold">
-                                    <Label.Triggers>
-                                        <DataTrigger TargetType="Label"
-                                                         Binding="{Binding Status}" Value="Pending">
-                                            <Setter Property="TextColor" Value="#E67E22" />
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Label"
-                                                         Binding="{Binding Status}" Value="Shipped">
-                                            <Setter Property="TextColor" Value="#2E6DA4" />
-                                        </DataTrigger>
-                                        <DataTrigger TargetType="Label"
-                                                         Binding="{Binding Status}" Value="Delivered">
-                                            <Setter Property="TextColor" Value="#4A7C59" />
-                                        </DataTrigger>
-                                    </Label.Triggers>
-                                </Label>
-                            </Border>
-                        </Grid>
+							<!-- Order ID + Status badge -->
+							<Grid ColumnDefinitions="*,Auto">
+								<Label Grid.Column="0"
+										   Text="{Binding OrderId}"
+										   FontSize="15" FontAttributes="Bold"
+										   TextColor="#1A1A1A" />
+								<Border Grid.Column="1"
+											StrokeShape="RoundRectangle 8"
+											Stroke="Transparent" Padding="10,4">
+									<Border.Triggers>
+										<DataTrigger TargetType="Border"
+														 Binding="{Binding Status}" Value="Pending">
+											<Setter Property="BackgroundColor" Value="#FFF3E0" />
+										</DataTrigger>
+										<DataTrigger TargetType="Border"
+														 Binding="{Binding Status}" Value="Shipped">
+											<Setter Property="BackgroundColor" Value="#E8F0FE" />
+										</DataTrigger>
+										<DataTrigger TargetType="Border"
+														 Binding="{Binding Status}" Value="Delivered">
+											<Setter Property="BackgroundColor" Value="#EEF5F0" />
+										</DataTrigger>
+									</Border.Triggers>
+									<Label Text="{Binding Status}"
+											   FontSize="12" FontAttributes="Bold">
+										<Label.Triggers>
+											<DataTrigger TargetType="Label"
+															 Binding="{Binding Status}" Value="Pending">
+												<Setter Property="TextColor" Value="#E67E22" />
+											</DataTrigger>
+											<DataTrigger TargetType="Label"
+															 Binding="{Binding Status}" Value="Shipped">
+												<Setter Property="TextColor" Value="#2E6DA4" />
+											</DataTrigger>
+											<DataTrigger TargetType="Label"
+															 Binding="{Binding Status}" Value="Delivered">
+												<Setter Property="TextColor" Value="#4A7C59" />
+											</DataTrigger>
+										</Label.Triggers>
+									</Label>
+								</Border>
+							</Grid>
 
-                        <!-- Date + item count -->
-                        <Label FontSize="13" TextColor="#888888">
-                            <Label.Text>
-                                <MultiBinding StringFormat="{}{0}  ·  {1} item(s)">
-                                    <Binding Path="FormattedDate" />
-                                    <Binding Path="ItemCount" />
-                                </MultiBinding>
-                            </Label.Text>
-                        </Label>
+							<!-- Date + item count -->
+							<Label FontSize="13" TextColor="#888888">
+								<Label.Text>
+									<MultiBinding StringFormat="{}{0}  ·  {1} item(s)">
+										<Binding Path="FormattedDate" />
+										<Binding Path="ItemCount" />
+									</MultiBinding>
+								</Label.Text>
+							</Label>
 
-                        <BoxView HeightRequest="1" BackgroundColor="#F0EBE5" />
+							<BoxView HeightRequest="1" BackgroundColor="#F0EBE5" />
 
-                        <!-- Total -->
-                        <Grid ColumnDefinitions="*,Auto">
-                            <Label Grid.Column="0" Text="Total"
-                                       FontSize="14" TextColor="#666666" />
-                            <Label Grid.Column="1"
-                                       Text="{Binding FormattedTotal}"
-                                       FontSize="15" FontAttributes="Bold"
-                                       TextColor="#C8683A" HorizontalOptions="End" />
-                        </Grid>
+							<!-- Total -->
+							<Grid ColumnDefinitions="*,Auto">
+								<Label Grid.Column="0" Text="Total"
+										   FontSize="14" TextColor="#666666" />
+								<Label Grid.Column="1"
+										   Text="{Binding FormattedTotal}"
+										   FontSize="15" FontAttributes="Bold"
+										   TextColor="#C8683A" HorizontalOptions="End" />
+							</Grid>
 
-                    </StackLayout>
-                </Border>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+						</StackLayout>
+					</Border>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+		</CollectionView>
 
-    <!-- Loading -->
-    <ActivityIndicator Grid.Row="1"
-                           x:Name="LoadingIndicator"
-                           IsRunning="True" IsVisible="True"
-                           Color="#C8683A"
-                           VerticalOptions="Center" HorizontalOptions="Center" />
-    </Grid>
+		<!-- Loading -->
+		<ActivityIndicator Grid.Row="1"
+							   x:Name="LoadingIndicator"
+							   IsRunning="True" IsVisible="True"
+							   Color="#C8683A"
+							   VerticalOptions="Center" HorizontalOptions="Center" />
+	</Grid>
 </ContentPage>

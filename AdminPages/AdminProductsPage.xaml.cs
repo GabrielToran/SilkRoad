@@ -8,8 +8,8 @@ public partial class AdminProductsPage : ContentPage
     private List<Product> _allProducts = new();
     public bool IsRefreshing { get; set; }
     public AdminProductsPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         BindingContext = this;
     }
     protected override async void OnAppearing()

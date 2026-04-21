@@ -8,8 +8,8 @@ public partial class CartPage : ContentPage
     private readonly CartService _cart = CartService.Instance;
 
     public CartPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         _cart.CartChanged += OnCartChanged;
     }
 

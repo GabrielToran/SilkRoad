@@ -4,22 +4,34 @@
              x:Class="Multiplatoform_Project.HomePage"
              Title="HomePage">
 
-    <Grid RowDefinitions="Auto,*">
+	<Grid RowDefinitions="Auto,*">
 
-        <!-- ── Header ───────────────────────────────────────────── -->
-        <Grid Grid.Row="0"
+		<!-- ── Header ───────────────────────────────────────────── -->
+		<Grid Grid.Row="0"
               BackgroundColor="#1A1A1A"
               Padding="24,52,24,24"
-              ColumnDefinitions="*,Auto,Auto">
+              ColumnDefinitions="*,Auto,Auto,Auto">
 
-            <StackLayout Grid.Column="0" Spacing="2" VerticalOptions="Center">
-                <Label Text="SILKROAD" FontSize="11" TextColor="#AAAAAA" CharacterSpacing="3" />
-                <Label x:Name="GreetingLabel" Text="Hello!"
+			<StackLayout Grid.Column="0" Spacing="2" VerticalOptions="Center">
+				<Label Text="SILKROAD" FontSize="11" TextColor="#AAAAAA" CharacterSpacing="3" />
+				<Label x:Name="GreetingLabel" Text="Hello!"
                        FontSize="22" FontAttributes="Bold" TextColor="White" />
-            </StackLayout>
+			</StackLayout>
+			<!-- Cart button -->
+			<Button Grid.Column="1"
+        Text="🛒"
+        FontSize="16"
+        BackgroundColor="#333333"
+        TextColor="White"
+        WidthRequest="36" HeightRequest="36"
+        CornerRadius="18"
+        Padding="0"
+        VerticalOptions="Center"
+        Margin="0,0,10,0"
+        Clicked="OnCartClicked" />
 
-            <!-- My Orders button — using Button so SourceGen resolves the handler -->
-            <Button Grid.Column="1"
+			<!-- My Orders button — using Button so SourceGen resolves the handler -->
+			<Button Grid.Column="2"
                     Text="📋"
                     FontSize="16"
                     BackgroundColor="#333333"
@@ -31,8 +43,8 @@
                     Margin="0,0,10,0"
                     Clicked="OnOrdersTapped" />
 
-            <!-- Profile button -->
-            <Button Grid.Column="2"
+			<!-- Profile button -->
+			<Button Grid.Column="3"
                     Text="👤"
                     FontSize="16"
                     BackgroundColor="#C8683A"
@@ -42,104 +54,104 @@
                     Padding="0"
                     VerticalOptions="Center"
                     Clicked="OnProfileTapped" />
-        </Grid>
+		</Grid>
 
-        <!-- ── Content ──────────────────────────────────────────── -->
-        <ScrollView Grid.Row="1" BackgroundColor="#F5F0EB">
-            <StackLayout Padding="20,16" Spacing="16">
+		<!-- ── Content ──────────────────────────────────────────── -->
+		<ScrollView Grid.Row="1" BackgroundColor="#F5F0EB">
+			<StackLayout Padding="20,16" Spacing="16">
 
-                <!-- Welcome banner -->
-                <Border BackgroundColor="#C8683A"
+				<!-- Welcome banner -->
+				<Border BackgroundColor="#C8683A"
                         StrokeShape="RoundRectangle 16"
                         Stroke="Transparent"
                         Padding="20,18">
-                    <StackLayout Spacing="4">
-                        <Label Text="Home Textiles"
+					<StackLayout Spacing="4">
+						<Label Text="Home Textiles"
                                FontSize="20" FontAttributes="Bold" TextColor="White" />
-                        <Label Text="Discover comfort &amp; elegance for your home"
+						<Label Text="Discover comfort &amp; elegance for your home"
                                FontSize="13" TextColor="#FFE0CC" />
-                    </StackLayout>
-                </Border>
+					</StackLayout>
+				</Border>
 
-                <Label Text="Shop by Category"
+				<Label Text="Shop by Category"
                        FontSize="18" FontAttributes="Bold"
                        TextColor="#1A1A1A" Margin="0,4,0,0" />
 
-                <!-- Categories grid -->
-                <CollectionView x:Name="CategoriesCollection" SelectionMode="None">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="2"
+				<!-- Categories grid -->
+				<CollectionView x:Name="CategoriesCollection" SelectionMode="None">
+					<CollectionView.ItemsLayout>
+						<GridItemsLayout Orientation="Vertical" Span="2"
                                          HorizontalItemSpacing="12" VerticalItemSpacing="12" />
-                    </CollectionView.ItemsLayout>
+					</CollectionView.ItemsLayout>
 
-                    <CollectionView.EmptyView>
-                        <StackLayout VerticalOptions="Center" HorizontalOptions="Center"
+					<CollectionView.EmptyView>
+						<StackLayout VerticalOptions="Center" HorizontalOptions="Center"
                                      Padding="40" Spacing="10">
-                            <Label Text="🗂️" FontSize="40" HorizontalOptions="Center" />
-                            <Label Text="No categories found" FontSize="15" TextColor="#9E9E9E"
+							<Label Text="🗂️" FontSize="40" HorizontalOptions="Center" />
+							<Label Text="No categories found" FontSize="15" TextColor="#9E9E9E"
                                    HorizontalOptions="Center" />
-                        </StackLayout>
-                    </CollectionView.EmptyView>
+						</StackLayout>
+					</CollectionView.EmptyView>
 
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Border BackgroundColor="White"
+					<CollectionView.ItemTemplate>
+						<DataTemplate>
+							<Border BackgroundColor="White"
                                     StrokeShape="RoundRectangle 16"
                                     Stroke="Transparent"
                                     HeightRequest="130" Margin="2"
                                     Shadow="{Shadow Brush='#20000000', Offset='0,2', Radius='8'}">
-                                <Border.GestureRecognizers>
-                                    <TapGestureRecognizer CommandParameter="{Binding .}"
+								<Border.GestureRecognizers>
+									<TapGestureRecognizer CommandParameter="{Binding .}"
                                                           Tapped="OnCategoryTapped" />
-                                </Border.GestureRecognizers>
-                                <Grid RowDefinitions="*,Auto" Padding="16,14">
-                                    <Border Grid.Row="0"
+								</Border.GestureRecognizers>
+								<Grid RowDefinitions="*,Auto" Padding="16,14">
+									<Border Grid.Row="0"
                                             BackgroundColor="#FDF0EA"
                                             StrokeShape="RoundRectangle 12"
                                             Stroke="Transparent"
                                             WidthRequest="52" HeightRequest="52"
                                             HorizontalOptions="Start">
-                                        <Label Text="🏷️" FontSize="24"
+										<Label Text="🏷️" FontSize="24"
                                                HorizontalOptions="Center"
                                                VerticalOptions="Center" />
-                                    </Border>
-                                    <StackLayout Grid.Row="1" Spacing="2">
-                                        <Label Text="{Binding Name}"
+									</Border>
+									<StackLayout Grid.Row="1" Spacing="2">
+										<Label Text="{Binding Name}"
                                                FontSize="14" FontAttributes="Bold"
                                                TextColor="#1A1A1A"
                                                LineBreakMode="TailTruncation" />
-                                        <Label FontSize="11" TextColor="#9E9E9E">
-                                            <Label.Text>
-                                                <MultiBinding StringFormat="{}{0} products">
-                                                    <Binding Path="ProductCount" />
-                                                </MultiBinding>
-                                            </Label.Text>
-                                        </Label>
-                                    </StackLayout>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+										<Label FontSize="11" TextColor="#9E9E9E">
+											<Label.Text>
+												<MultiBinding StringFormat="{}{0} products">
+													<Binding Path="ProductCount" />
+												</MultiBinding>
+											</Label.Text>
+										</Label>
+									</StackLayout>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</CollectionView.ItemTemplate>
+				</CollectionView>
 
-                <BoxView HeightRequest="8" BackgroundColor="Transparent" />
+				<BoxView HeightRequest="8" BackgroundColor="Transparent" />
 
-                <Button Text="Log out"
+				<Button Text="Log out"
                         BackgroundColor="Transparent"
                         TextColor="#9E9E9E"
                         FontSize="14"
                         HeightRequest="44"
                         Clicked="OnLogOutClicked" />
 
-            </StackLayout>
-        </ScrollView>
+			</StackLayout>
+		</ScrollView>
 
-        <!-- Loading overlay -->
-        <ActivityIndicator Grid.Row="1"
+		<!-- Loading overlay -->
+		<ActivityIndicator Grid.Row="1"
                            x:Name="LoadingIndicator"
                            IsRunning="True" IsVisible="True"
                            Color="#C8683A"
                            VerticalOptions="Center"
                            HorizontalOptions="Center" />
-    </Grid>
+	</Grid>
 </ContentPage>

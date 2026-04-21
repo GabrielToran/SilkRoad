@@ -8,8 +8,8 @@ public partial class AdminOrderDetailPage : ContentPage
     private Order _order;
 
     public AdminOrderDetailPage(Order order)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         _order = order;
         PopulateUI();
     }
@@ -67,7 +67,7 @@ public partial class AdminOrderDetailPage : ContentPage
         try
         {
             await FirebaseAuthServices.Instance
-                .UpdateOrderStatusAsync(_order.OrderId, newStatus);
+                .UpdateOrderStatusAsync(_order.DocId, newStatus);
 
             _order.Status = newStatus;
             UpdateStatusBadge(newStatus);

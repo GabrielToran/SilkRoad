@@ -4,10 +4,10 @@ namespace Multiplatoform_Project.AdminPages;
 
 public partial class AdminLoginPage : ContentPage
 {
-	public AdminLoginPage()
-	{
-		InitializeComponent();
-	}
+    public AdminLoginPage()
+    {
+        InitializeComponent();
+    }
 
     private async void OnSignInClicked(object sender, EventArgs e)
     {
@@ -47,7 +47,7 @@ public partial class AdminLoginPage : ContentPage
         catch (Exception ex)
         {
             string msg = ex.Message.Contains("INVALID_PASSWORD") ||
-                         ex.Message.Contains("EMAIL_NOT_FOUND")  ||
+                         ex.Message.Contains("EMAIL_NOT_FOUND") ||
                          ex.Message.Contains("INVALID_LOGIN_CREDENTIALS")
                 ? "Invalid email or password."
                 : "Sign in failed. Please try again.";
@@ -60,8 +60,8 @@ public partial class AdminLoginPage : ContentPage
         }
     }
 
-         private async void OnBackToStoreTapped(object sender, TappedEventArgs e)
-            => await Navigation.PopAsync();
+    private async void OnBackToStoreTapped(object sender, TappedEventArgs e)
+       => await Navigation.PopAsync();
 
     private void ShowError(string message)
     {

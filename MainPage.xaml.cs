@@ -2,7 +2,7 @@ namespace Multiplatoform_Project
 {
     public partial class MainPage : ContentPage
     {
-       
+
 
         public MainPage()
         {
@@ -11,7 +11,7 @@ namespace Multiplatoform_Project
 
         private void OnCounterClicked(object? sender, EventArgs e)
         {
-          
+
         }
 
         private async void OnSignInClicked(object sender, EventArgs e)

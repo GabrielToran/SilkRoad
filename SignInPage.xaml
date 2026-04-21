@@ -3,51 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Multiplatoform_Project.SignInPage"
              Title="SignInPage">
-   <ScrollView>
-        <VerticalStackLayout
+	<ScrollView>
+		<VerticalStackLayout
             Spacing="10">
-      
-           <Label Text="Welcome Back"
-                   FontSize="40"
-                  FontAttributes="Bold"
-                    HorizontalOptions="Center"
+
+			<Label Text="Welcome Back"
+					FontSize="40"
+				   FontAttributes="Bold"
+					 HorizontalOptions="Center"
                                   />
-            <Label Text=" sign in to continue"
+			<Label Text=" sign in to continue"
                    HorizontalOptions="Center"
                    />
-            <Label Text="Email"
+			<Label Text="Email"
        HorizontalOptions="Start"
        />
-            <Entry x:Name="EmailEntry"
+			<Entry x:Name="EmailEntry"
     Placeholder="Email" />
-            <Label Text="Password"
+			<Label Text="Password"
 HorizontalOptions="Start"
                   
 />
-            <Entry x:Name="PasswordEntry"
+			<Entry x:Name="PasswordEntry"
     IsPassword="False"
     Placeholder="Password"/>
-                <Button Text="SignIn"
-                        BackgroundColor="Orange"
+			<Button Text="SignIn"
+					BackgroundColor="Orange"
                         
-                      Clicked="OnSignInClicked"/>
-            
-                 <Label Text="Forgot password?"
-                        TextColor="Orange">
-                     
-                       <Label.GestureRecognizers>
-                          <TapGestureRecognizer Tapped ="OnTextClicked"/>
-                        </Label.GestureRecognizers>
-                </Label>
-                     
-                    <Button 
-                    Text="You dont Have an account ? SignUp"
-                    BackgroundColor="Orange"
-                    WidthRequest="200"
-                    HorizontalOptions="Center"
-                    Clicked="OnGoToSignUpPage"/>
-                <Label x:Name="result"
-    TextColor="red"/>
-        </VerticalStackLayout>
-   </ScrollView>
+				  Clicked="OnSignInClicked"/>
+
+			<Label Text="Forgot password?"
+				   TextColor="Orange">
+
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Tapped ="OnTextClicked"/>
+				</Label.GestureRecognizers>
+			</Label>
+
+			<Button
+			Text="You dont Have an account ? SignUp"
+			BackgroundColor="Orange"
+			WidthRequest="200"
+			HorizontalOptions="Center"
+			Clicked="OnGoToSignUpPage"/>
+			<Label x:Name="result"
+TextColor="red"/>
+		</VerticalStackLayout>
+	</ScrollView>
 </ContentPage>

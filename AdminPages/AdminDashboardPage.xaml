@@ -3,25 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Multiplatoform_Project.AdminPages.AdminDashboardPage"
              Title="AdminDashboardPage">
-    <VerticalStackLayout>
-        <Grid RowDefinitions="Auto,*">
+	<VerticalStackLayout>
+		<Grid RowDefinitions="Auto,*">
 
-            <!-- ── Header ───────────────────────────────────────────── -->
-            <Grid Grid.Row="0"
+			<!-- ── Header ───────────────────────────────────────────── -->
+			<Grid Grid.Row="0"
               BackgroundColor="#1A1A1A"
               Padding="24,52,24,24">
-                <Grid ColumnDefinitions="*,Auto">
-                    <StackLayout Grid.Column="0" Spacing="4">
-                        <Label Text="ADMIN"
+				<Grid ColumnDefinitions="*,Auto">
+					<StackLayout Grid.Column="0" Spacing="4">
+						<Label Text="ADMIN"
                            FontSize="11"
                            TextColor="#AAAAAA"
                            CharacterSpacing="3" />
-                        <Label Text="Dashboard"
+						<Label Text="Dashboard"
                            FontSize="24"
                            FontAttributes="Bold"
                            TextColor="White" />
-                    </StackLayout>
-                    <Button Grid.Column="1"
+					</StackLayout>
+					<Button Grid.Column="1"
                         Text="Logout"
                         BackgroundColor="#333333"
                         TextColor="White"
@@ -30,178 +30,178 @@
                         CornerRadius="10"
                         Padding="14,0"
                         Clicked="OnLogoutClicked" />
-                </Grid>
-            </Grid>
-            <!-- ── Dashboard tiles ──────────────────────────────────── -->
-            <ScrollView Grid.Row="1" Padding="20">
-                <StackLayout Spacing="16">
+				</Grid>
+			</Grid>
+			<!-- ── Dashboard tiles ──────────────────────────────────── -->
+			<ScrollView Grid.Row="1" Padding="20">
+				<StackLayout Spacing="16">
 
-                    <!-- Stats row -->
-                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
-                        <Border Grid.Column="0"
+					<!-- Stats row -->
+					<Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
+						<Border Grid.Column="0"
                             BackgroundColor="White"
                             StrokeShape="RoundRectangle 14"
                             Stroke="Transparent"
                             Padding="14"
                             Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                            <StackLayout Spacing="4">
-                                <Label x:Name="ProductCountLabel"
+							<StackLayout Spacing="4">
+								<Label x:Name="ProductCountLabel"
                                    Text="—"
                                    FontSize="22"
                                    FontAttributes="Bold"
                                    TextColor="#C8683A" />
-                                <Label Text="Products"
+								<Label Text="Products"
                                    FontSize="11"
                                    TextColor="#888888" />
-                            </StackLayout>
-                        </Border>
-                        <Border Grid.Column="1"
+							</StackLayout>
+						</Border>
+						<Border Grid.Column="1"
                             BackgroundColor="White"
                             StrokeShape="RoundRectangle 14"
                             Stroke="Transparent"
                             Padding="14"
                             Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                            <StackLayout Spacing="4">
-                                <Label x:Name="CategoryCountLabel"
+							<StackLayout Spacing="4">
+								<Label x:Name="CategoryCountLabel"
                                    Text="—"
                                    FontSize="22"
                                    FontAttributes="Bold"
                                    TextColor="#4A7C59" />
-                                <Label Text="Categories"
+								<Label Text="Categories"
                                    FontSize="11"
                                    TextColor="#888888" />
-                            </StackLayout>
-                        </Border>
-                        <Border Grid.Column="2"
+							</StackLayout>
+						</Border>
+						<Border Grid.Column="2"
                             BackgroundColor="White"
                             StrokeShape="RoundRectangle 14"
                             Stroke="Transparent"
                             Padding="14"
                             Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                            <StackLayout Spacing="4">
-                                <Label x:Name="OrderCountLabel"
+							<StackLayout Spacing="4">
+								<Label x:Name="OrderCountLabel"
                                    Text="—"
                                    FontSize="22"
                                    FontAttributes="Bold"
                                    TextColor="#5B7FA6" />
-                                <Label Text="Orders"
+								<Label Text="Orders"
                                    FontSize="11"
                                    TextColor="#888888" />
-                            </StackLayout>
-                        </Border>
-                    </Grid>
+							</StackLayout>
+						</Border>
+					</Grid>
 
-                    <!-- Navigation tiles -->
-                    <!-- Products tile -->
-                    <Border BackgroundColor="White"
+					<!-- Navigation tiles -->
+					<!-- Products tile -->
+					<Border BackgroundColor="White"
                         StrokeShape="RoundRectangle 16"
                         Stroke="Transparent"
                         Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnProductsTapped" />
-                        </Border.GestureRecognizers>
-                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="18" ColumnSpacing="16">
-                            <Border Grid.Column="0"
+						<Border.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnProductsTapped" />
+						</Border.GestureRecognizers>
+						<Grid ColumnDefinitions="Auto,*,Auto" Padding="18" ColumnSpacing="16">
+							<Border Grid.Column="0"
                                 BackgroundColor="#FDF0EA"
                                 StrokeShape="RoundRectangle 12"
                                 Stroke="Transparent"
                                 WidthRequest="48" HeightRequest="48">
-                                <Label Text="📦"
+								<Label Text="📦"
                                    FontSize="22"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center" />
-                            </Border>
-                            <StackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
-                                <Label Text="Products"
+							</Border>
+							<StackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+								<Label Text="Products"
                                    FontSize="16"
                                    FontAttributes="Bold"
                                    TextColor="#1A1A1A" />
-                                <Label Text="Add, edit, delete and search products"
+								<Label Text="Add, edit, delete and search products"
                                    FontSize="12"
                                    TextColor="#9E9E9E" />
-                            </StackLayout>
-                            <Label Grid.Column="2"
+							</StackLayout>
+							<Label Grid.Column="2"
                                Text="›"
                                FontSize="24"
                                TextColor="#CCCCCC"
                                VerticalOptions="Center" />
-                        </Grid>
-                    </Border>
+						</Grid>
+					</Border>
 
-                    <!-- Categories tile -->
-                    <Border BackgroundColor="White"
+					<!-- Categories tile -->
+					<Border BackgroundColor="White"
                         StrokeShape="RoundRectangle 16"
                         Stroke="Transparent"
                         Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnCategoriesTapped" />
-                        </Border.GestureRecognizers>
-                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="18" ColumnSpacing="16">
-                            <Border Grid.Column="0"
+						<Border.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnCategoriesTapped" />
+						</Border.GestureRecognizers>
+						<Grid ColumnDefinitions="Auto,*,Auto" Padding="18" ColumnSpacing="16">
+							<Border Grid.Column="0"
                                 BackgroundColor="#EEF5F0"
                                 StrokeShape="RoundRectangle 12"
                                 Stroke="Transparent"
                                 WidthRequest="48" HeightRequest="48">
-                                <Label Text="🗂️"
+								<Label Text="🗂️"
                                    FontSize="22"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center" />
-                            </Border>
-                            <StackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
-                                <Label Text="Categories"
+							</Border>
+							<StackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+								<Label Text="Categories"
                                    FontSize="16"
                                    FontAttributes="Bold"
                                    TextColor="#1A1A1A" />
-                                <Label Text="Manage product categories"
+								<Label Text="Manage product categories"
                                    FontSize="12"
                                    TextColor="#9E9E9E" />
-                            </StackLayout>
-                            <Label Grid.Column="2"
+							</StackLayout>
+							<Label Grid.Column="2"
                                Text="›"
                                FontSize="24"
                                TextColor="#CCCCCC"
                                VerticalOptions="Center" />
-                        </Grid>
-                    </Border>
+						</Grid>
+					</Border>
 
-                    <!-- Orders tile -->
-                    <Border BackgroundColor="White"
+					<!-- Orders tile -->
+					<Border BackgroundColor="White"
                         StrokeShape="RoundRectangle 16"
                         Stroke="Transparent"
                         Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnOrdersTapped" />
-                        </Border.GestureRecognizers>
-                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="18" ColumnSpacing="16">
-                            <Border Grid.Column="0"
+						<Border.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnOrdersTapped" />
+						</Border.GestureRecognizers>
+						<Grid ColumnDefinitions="Auto,*,Auto" Padding="18" ColumnSpacing="16">
+							<Border Grid.Column="0"
                                 BackgroundColor="#EAF0F8"
                                 StrokeShape="RoundRectangle 12"
                                 Stroke="Transparent"
                                 WidthRequest="48" HeightRequest="48">
-                                <Label Text="📋"
+								<Label Text="📋"
                                    FontSize="22"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center" />
-                            </Border>
-                            <StackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
-                                <Label Text="Orders"
+							</Border>
+							<StackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+								<Label Text="Orders"
                                    FontSize="16"
                                    FontAttributes="Bold"
                                    TextColor="#1A1A1A" />
-                                <Label Text="View and manage customer orders"
+								<Label Text="View and manage customer orders"
                                    FontSize="12"
                                    TextColor="#9E9E9E" />
-                            </StackLayout>
-                            <Label Grid.Column="2"
+							</StackLayout>
+							<Label Grid.Column="2"
                                Text="›"
                                FontSize="24"
                                TextColor="#CCCCCC"
                                VerticalOptions="Center" />
-                        </Grid>
-                    </Border>
-                </StackLayout>
-            </ScrollView>
+						</Grid>
+					</Border>
+				</StackLayout>
+			</ScrollView>
 
-        </Grid>
-    </VerticalStackLayout>
+		</Grid>
+	</VerticalStackLayout>
 </ContentPage>

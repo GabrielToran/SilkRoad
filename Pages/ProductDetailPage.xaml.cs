@@ -11,8 +11,8 @@ public partial class ProductDetailPage : ContentPage
     private int _quantity = 1;
 
     public ProductDetailPage(Product product)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         _product = product;
         PopulateUI();
     }

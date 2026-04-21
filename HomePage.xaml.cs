@@ -5,10 +5,10 @@ namespace Multiplatoform_Project;
 
 public partial class HomePage : ContentPage
 {
-	public HomePage()
-	{
-		InitializeComponent();
-       
+    public HomePage()
+    {
+        InitializeComponent();
+
     }
 
     protected override async void OnAppearing()
@@ -54,6 +54,9 @@ public partial class HomePage : ContentPage
 
     private async void OnProfileTapped(object sender, EventArgs e)
         => await Navigation.PushAsync(new EditProfile());
+
+    private async void OnCartClicked(object sender, EventArgs e)
+    => await Navigation.PushAsync(new Pages.CartPage());
 
     private async void OnLogOutClicked(object sender, EventArgs e)
     {

@@ -2,216 +2,216 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Multiplatoform_Project.AdminPages.AdminAddEditProductPage">
-    <ScrollView>
-    <VerticalStackLayout>
-        <Grid RowDefinitions="Auto,*,Auto">
+	<ScrollView>
+		<VerticalStackLayout>
+			<Grid RowDefinitions="Auto,*,Auto">
 
-            <!-- ── Header ───────────────────────────────────────────── -->
-            <Grid Grid.Row="0"
-              BackgroundColor="#1A1A1A"
-              Padding="20,52,20,20"
-              ColumnDefinitions="Auto,*">
-                <ImageButton Grid.Column="0"
-                         Source="icon_back_white.png"
-                         WidthRequest="36" HeightRequest="36"
-                         BackgroundColor="#333333"
-                         CornerRadius="18"
-                         Clicked="OnBackClicked" />
-                <Label Grid.Column="1"
-                   x:Name="PageTitleLabel"
-                   Text="Add product"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   TextColor="White"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center" />
-            </Grid>
+				<!-- ── Header ───────────────────────────────────────────── -->
+				<Grid Grid.Row="0"
+				  BackgroundColor="#1A1A1A"
+				  Padding="20,52,20,20"
+				  ColumnDefinitions="Auto,*">
+					<ImageButton Grid.Column="0"
+							 Source="icon_back_white.png"
+							 WidthRequest="36" HeightRequest="36"
+							 BackgroundColor="#333333"
+							 CornerRadius="18"
+							 Clicked="OnBackClicked" />
+					<Label Grid.Column="1"
+					   x:Name="PageTitleLabel"
+					   Text="Add product"
+					   FontSize="20"
+					   FontAttributes="Bold"
+					   TextColor="White"
+					   HorizontalOptions="Center"
+					   VerticalOptions="Center" />
+				</Grid>
 
-            <!-- ── Form ─────────────────────────────────────────────── -->
-            <ScrollView Grid.Row="1" Padding="16,12,16,16">
-                <StackLayout Spacing="16">
+				<!-- ── Form ─────────────────────────────────────────────── -->
+				<ScrollView Grid.Row="1" Padding="16,12,16,16">
+					<StackLayout Spacing="16">
 
-                    <!-- Image upload area -->
-                    <Border x:Name="ImagePickerBorder"
-                        BackgroundColor="White"
-                        StrokeShape="RoundRectangle 14"
-                        Stroke="#E0D8D0"
-                        StrokeThickness="1.5"
-                        StrokeDashArray="6,4"
-                        HeightRequest="160">
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnPickImageTapped" />
-                        </Border.GestureRecognizers>
-                        <Grid>
-                            <!-- Placeholder -->
-                            <StackLayout x:Name="ImagePlaceholder"
-                                     VerticalOptions="Center"
-                                     HorizontalOptions="Center"
-                                     Spacing="8">
-                                <Label Text="🖼️" FontSize="32"
-                                   HorizontalOptions="Center" />
-                                <Label Text="Tap to upload product image"
-                                   FontSize="14" TextColor="#9E9E9E"
-                                   HorizontalOptions="Center" />
-                            </StackLayout>
+						<!-- Image upload area -->
+						<Border x:Name="ImagePickerBorder"
+							BackgroundColor="White"
+							StrokeShape="RoundRectangle 14"
+							Stroke="#E0D8D0"
+							StrokeThickness="1.5"
+							StrokeDashArray="6,4"
+							HeightRequest="160">
+							<Border.GestureRecognizers>
+								<TapGestureRecognizer Tapped="OnPickImageTapped" />
+							</Border.GestureRecognizers>
+							<Grid>
+								<!-- Placeholder -->
+								<StackLayout x:Name="ImagePlaceholder"
+										 VerticalOptions="Center"
+										 HorizontalOptions="Center"
+										 Spacing="8">
+									<Label Text="🖼️" FontSize="32"
+									   HorizontalOptions="Center" />
+									<Label Text="Tap to upload product image"
+									   FontSize="14" TextColor="#9E9E9E"
+									   HorizontalOptions="Center" />
+								</StackLayout>
 
-                            <!-- Selected image preview -->
-                            <Image x:Name="ProductImagePreview"
-                               Aspect="AspectFill"
-                               IsVisible="False" />
-                        </Grid>
-                    </Border>
+								<!-- Selected image preview -->
+								<Image x:Name="ProductImagePreview"
+								   Aspect="AspectFill"
+								   IsVisible="False" />
+							</Grid>
+						</Border>
 
-                    <!-- Product name -->
-                    <StackLayout Spacing="6">
-                        <Label Text="Product name" FontSize="13" TextColor="#666666" />
-                        <Border BackgroundColor="White"
-                            StrokeShape="RoundRectangle 12"
-                            Stroke="#E0D8D0">
-                            <Entry x:Name="NameEntry"
-                               Placeholder="e.g. Cotton Duvet Cover"
-                               PlaceholderColor="#BBBBBB"
-                               TextColor="#1A1A1A"
-                               FontSize="15"
-                               BackgroundColor="Transparent"
-                               Margin="8,2" />
-                        </Border>
-                    </StackLayout>
+						<!-- Product name -->
+						<StackLayout Spacing="6">
+							<Label Text="Product name" FontSize="13" TextColor="#666666" />
+							<Border BackgroundColor="White"
+								StrokeShape="RoundRectangle 12"
+								Stroke="#E0D8D0">
+								<Entry x:Name="NameEntry"
+								   Placeholder="e.g. Cotton Duvet Cover"
+								   PlaceholderColor="#BBBBBB"
+								   TextColor="#1A1A1A"
+								   FontSize="15"
+								   BackgroundColor="Transparent"
+								   Margin="8,2" />
+							</Border>
+						</StackLayout>
 
-                    <!-- Category + Price row -->
-                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+						<!-- Category + Price row -->
+						<Grid ColumnDefinitions="*,*" ColumnSpacing="12">
 
-                        <!-- Category picker -->
-                        <StackLayout Grid.Column="0" Spacing="6">
-                            <Label Text="Category" FontSize="13" TextColor="#666666" />
-                            <Border BackgroundColor="White"
-                                StrokeShape="RoundRectangle 12"
-                                Stroke="#E0D8D0">
-                                <Picker x:Name="CategoryPicker"
-                                    Title="Select"
-                                    TitleColor="#BBBBBB"
-                                    TextColor="#1A1A1A"
-                                    FontSize="15"
-                                    BackgroundColor="Transparent"
-                                    Margin="8,2" />
-                            </Border>
-                        </StackLayout>
+							<!-- Category picker -->
+							<StackLayout Grid.Column="0" Spacing="6">
+								<Label Text="Category" FontSize="13" TextColor="#666666" />
+								<Border BackgroundColor="White"
+									StrokeShape="RoundRectangle 12"
+									Stroke="#E0D8D0">
+									<Picker x:Name="CategoryPicker"
+										Title="Select"
+										TitleColor="#BBBBBB"
+										TextColor="#1A1A1A"
+										FontSize="15"
+										BackgroundColor="Transparent"
+										Margin="8,2" />
+								</Border>
+							</StackLayout>
 
-                        <!-- Price -->
-                        <StackLayout Grid.Column="1" Spacing="6">
-                            <Label Text="Price ($)" FontSize="13" TextColor="#666666" />
-                            <Border BackgroundColor="White"
-                                StrokeShape="RoundRectangle 12"
-                                Stroke="#E0D8D0">
-                                <Entry x:Name="PriceEntry"
-                                   Placeholder="0.00"
-                                   PlaceholderColor="#BBBBBB"
-                                   TextColor="#1A1A1A"
-                                   FontSize="15"
-                                   Keyboard="Numeric"
-                                   BackgroundColor="Transparent"
-                                   Margin="8,2" />
-                            </Border>
-                        </StackLayout>
-                    </Grid>
+							<!-- Price -->
+							<StackLayout Grid.Column="1" Spacing="6">
+								<Label Text="Price ($)" FontSize="13" TextColor="#666666" />
+								<Border BackgroundColor="White"
+									StrokeShape="RoundRectangle 12"
+									Stroke="#E0D8D0">
+									<Entry x:Name="PriceEntry"
+									   Placeholder="0.00"
+									   PlaceholderColor="#BBBBBB"
+									   TextColor="#1A1A1A"
+									   FontSize="15"
+									   Keyboard="Numeric"
+									   BackgroundColor="Transparent"
+									   Margin="8,2" />
+								</Border>
+							</StackLayout>
+						</Grid>
 
-                    <!-- Badge -->
-                    <StackLayout Spacing="6">
-                        <Label Text="Badge (optional)" FontSize="13" TextColor="#666666" />
-                        <Border BackgroundColor="White"
-                            StrokeShape="RoundRectangle 12"
-                            Stroke="#E0D8D0">
-                            <Picker x:Name="BadgePicker"
-                                Title="None"
-                                TitleColor="#BBBBBB"
-                                TextColor="#1A1A1A"
-                                FontSize="15"
-                                BackgroundColor="Transparent"
-                                Margin="8,2">
-                                <Picker.Items>
-                                    <x:String>None</x:String>
-                                    <x:String>Best seller</x:String>
-                                    <x:String>New</x:String>
-                                    <x:String>Sale</x:String>
-                                </Picker.Items>
-                            </Picker>
-                        </Border>
-                    </StackLayout>
+						<!-- Badge -->
+						<StackLayout Spacing="6">
+							<Label Text="Badge (optional)" FontSize="13" TextColor="#666666" />
+							<Border BackgroundColor="White"
+								StrokeShape="RoundRectangle 12"
+								Stroke="#E0D8D0">
+								<Picker x:Name="BadgePicker"
+									Title="None"
+									TitleColor="#BBBBBB"
+									TextColor="#1A1A1A"
+									FontSize="15"
+									BackgroundColor="Transparent"
+									Margin="8,2">
+									<Picker.Items>
+										<x:String>None</x:String>
+										<x:String>Best seller</x:String>
+										<x:String>New</x:String>
+										<x:String>Sale</x:String>
+									</Picker.Items>
+								</Picker>
+							</Border>
+						</StackLayout>
 
-                    <!-- Description -->
-                    <StackLayout Spacing="6">
-                        <Label Text="Description" FontSize="13" TextColor="#666666" />
-                        <Border BackgroundColor="White"
-                            StrokeShape="RoundRectangle 12"
-                            Stroke="#E0D8D0">
-                            <Editor x:Name="DescriptionEditor"
-                                Placeholder="Product description..."
-                                PlaceholderColor="#BBBBBB"
-                                TextColor="#1A1A1A"
-                                FontSize="15"
-                                AutoSize="TextChanges"
-                                MinimumHeightRequest="100"
-                                BackgroundColor="Transparent"
-                                Margin="8,4" />
-                        </Border>
-                    </StackLayout>
+						<!-- Description -->
+						<StackLayout Spacing="6">
+							<Label Text="Description" FontSize="13" TextColor="#666666" />
+							<Border BackgroundColor="White"
+								StrokeShape="RoundRectangle 12"
+								Stroke="#E0D8D0">
+								<Editor x:Name="DescriptionEditor"
+									Placeholder="Product description..."
+									PlaceholderColor="#BBBBBB"
+									TextColor="#1A1A1A"
+									FontSize="15"
+									AutoSize="TextChanges"
+									MinimumHeightRequest="100"
+									BackgroundColor="Transparent"
+									Margin="8,4" />
+							</Border>
+						</StackLayout>
 
-                    <!-- Available toggle -->
-                    <Border BackgroundColor="White"
-                        StrokeShape="RoundRectangle 14"
-                        Stroke="Transparent"
-                        Padding="16,14"
-                        Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
-                        <Grid ColumnDefinitions="*,Auto">
-                            <StackLayout Grid.Column="0" Spacing="3">
-                                <Label Text="Available for sale"
-                                   FontSize="15" FontAttributes="Bold"
-                                   TextColor="#1A1A1A" />
-                                <Label Text="Visible to customers"
-                                   FontSize="12" TextColor="#9E9E9E" />
-                            </StackLayout>
-                            <Switch Grid.Column="1"
-                                x:Name="AvailableSwitch"
-                                IsToggled="True"
-                                OnColor="#C8683A"
-                                ThumbColor="White"
-                                VerticalOptions="Center" />
-                        </Grid>
-                    </Border>
+						<!-- Available toggle -->
+						<Border BackgroundColor="White"
+							StrokeShape="RoundRectangle 14"
+							Stroke="Transparent"
+							Padding="16,14"
+							Shadow="{Shadow Brush='#15000000', Offset='0,2', Radius='6'}">
+							<Grid ColumnDefinitions="*,Auto">
+								<StackLayout Grid.Column="0" Spacing="3">
+									<Label Text="Available for sale"
+									   FontSize="15" FontAttributes="Bold"
+									   TextColor="#1A1A1A" />
+									<Label Text="Visible to customers"
+									   FontSize="12" TextColor="#9E9E9E" />
+								</StackLayout>
+								<Switch Grid.Column="1"
+									x:Name="AvailableSwitch"
+									IsToggled="True"
+									OnColor="#C8683A"
+									ThumbColor="White"
+									VerticalOptions="Center" />
+							</Grid>
+						</Border>
 
-                    <!-- Error label -->
-                    <Label x:Name="ErrorLabel"
-                       TextColor="#C8683A"
-                       FontSize="13"
-                       IsVisible="False"
-                       HorizontalOptions="Center" />
+						<!-- Error label -->
+						<Label x:Name="ErrorLabel"
+						   TextColor="#C8683A"
+						   FontSize="13"
+						   IsVisible="False"
+						   HorizontalOptions="Center" />
 
-                </StackLayout>
-            </ScrollView>
+					</StackLayout>
+				</ScrollView>
 
-            <!-- ── Buttons ───────────────────────────────────────────── -->
-            <StackLayout Grid.Row="2"
-                     BackgroundColor="White"
-                     Padding="20,12"
-                     Spacing="10">
-                <Button x:Name="SaveBtn"
-                    Text="Save product"
-                    BackgroundColor="#C8683A"
-                    TextColor="White"
-                    FontSize="17"
-                    FontAttributes="Bold"
-                    HeightRequest="54"
-                    CornerRadius="14"
-                    Clicked="OnSaveClicked" />
-                <Button Text="Cancel"
-                    BackgroundColor="Transparent"
-                    TextColor="#C8683A"
-                    FontSize="16"
-                    HeightRequest="44"
-                    Clicked="OnBackClicked" />
-            </StackLayout>
+				<!-- ── Buttons ───────────────────────────────────────────── -->
+				<StackLayout Grid.Row="2"
+						 BackgroundColor="White"
+						 Padding="20,12"
+						 Spacing="10">
+					<Button x:Name="SaveBtn"
+						Text="Save product"
+						BackgroundColor="#C8683A"
+						TextColor="White"
+						FontSize="17"
+						FontAttributes="Bold"
+						HeightRequest="54"
+						CornerRadius="14"
+						Clicked="OnSaveClicked" />
+					<Button Text="Cancel"
+						BackgroundColor="Transparent"
+						TextColor="#C8683A"
+						FontSize="16"
+						HeightRequest="44"
+						Clicked="OnBackClicked" />
+				</StackLayout>
 
-        </Grid>
-    </VerticalStackLayout>
-    </ScrollView>
+			</Grid>
+		</VerticalStackLayout>
+	</ScrollView>
 </ContentPage>

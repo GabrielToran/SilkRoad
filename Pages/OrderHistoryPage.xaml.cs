@@ -5,10 +5,10 @@ namespace Multiplatoform_Project.Pages;
 
 public partial class OrderHistoryPage : ContentPage
 {
-	public OrderHistoryPage()
-	{
-		InitializeComponent();
-	}
+    public OrderHistoryPage()
+    {
+        InitializeComponent();
+    }
 
 
     protected override async void OnAppearing()

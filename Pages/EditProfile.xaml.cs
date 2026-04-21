@@ -7,9 +7,9 @@ public partial class EditProfile : ContentPage
 {
     private UserProfile? _profile;
     public EditProfile()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 
     protected override async void OnAppearing()
     {

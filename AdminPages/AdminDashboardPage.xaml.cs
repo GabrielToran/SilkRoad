@@ -4,10 +4,10 @@ namespace Multiplatoform_Project.AdminPages;
 
 public partial class AdminDashboardPage : ContentPage
 {
-	public AdminDashboardPage()
-	{
-		InitializeComponent();
-	}
+    public AdminDashboardPage()
+    {
+        InitializeComponent();
+    }
     protected override async void OnAppearing()
     {
         base.OnAppearing();

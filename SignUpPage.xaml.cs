@@ -6,9 +6,9 @@ public partial class SignUpPage : ContentPage
 {
     private FirebaseAuthServices _authService = new FirebaseAuthServices();
     public SignUpPage()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 
     private async void OnSignUpClicked(object sender, EventArgs e)
     {

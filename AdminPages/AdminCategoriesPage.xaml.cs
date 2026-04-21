@@ -8,8 +8,8 @@ public partial class AdminCategoriesPage : ContentPage
     public bool IsRefreshing { get; set; }
     public Command RefreshCommand => new Command(async () => await LoadCategoriesAsync());
     public AdminCategoriesPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         BindingContext = this;
     }
     protected override async void OnAppearing()
@@ -112,7 +112,7 @@ public partial class AdminCategoriesPage : ContentPage
         }
     }
 
-   
+
 
     private async void OnBackClicked(object sender, EventArgs e)
         => await Navigation.PopAsync();

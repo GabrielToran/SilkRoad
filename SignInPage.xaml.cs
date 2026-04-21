@@ -7,9 +7,9 @@ public partial class SignInPage : ContentPage
 {
     private FirebaseAuthServices _authService = new FirebaseAuthServices();
     public SignInPage()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
 
 
     private async void OnSignInClicked(object sender, EventArgs e)
@@ -40,8 +40,9 @@ public partial class SignInPage : ContentPage
 
     }
 
-    private async void OnTextClicked(object sender, EventArgs e) { 
-    
+    private async void OnTextClicked(object sender, EventArgs e)
+    {
+
         await Navigation.PushAsync(new ResetPassword());
     }
 

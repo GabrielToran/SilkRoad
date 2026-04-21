@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Multiplatoform_Project.Models
 {
-    public  class Product
+    public class Product
     {
         public string Id { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;

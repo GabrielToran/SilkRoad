@@ -81,14 +81,14 @@ public partial class AdminAddEditProductPage : ContentPage
 
             _imageFileName = result.FileName;
 
-            
+
             using var original = await result.OpenReadAsync();
             var ms = new MemoryStream();
             await original.CopyToAsync(ms);
             ms.Position = 0;
             _imageStream = ms;
 
-            
+
             var previewBytes = ms.ToArray();
             ProductImagePreview.Source = ImageSource.FromStream(
                 () => new MemoryStream(previewBytes));
